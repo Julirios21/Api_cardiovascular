@@ -6,7 +6,7 @@ console.log("Conectando a la base de datos...");
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false, // Necesario para conexiones SSL en Render
+    rejectUnauthorized: false, 
   },
 });
 
