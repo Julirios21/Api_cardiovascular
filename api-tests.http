@@ -1,0 +1,53 @@
+### Variables de entorno
+@baseUrl = http://localhost:3000
+@email = usuario@ejemplo.com
+@cedula = 1234567890
+
+### Crear un nuevo usuario (POST)
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+    "email": "{{email}}",
+    "cedula": "{{cedula}}",
+    "hashed_password": "pas123"
+}
+
+### Obtener todos los usuarios (GET)
+GET {{baseUrl}}/usuarios
+
+### Obtener usuario por email (GET)
+GET {{baseUrl}}/usuarios/{{email}}
+
+### Obtener usuario por email y cédula (GET)
+GET {{baseUrl}}/usuarios/{{email}}/{{cedula}}
+
+### Crear otro usuario para pruebas
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+    "email": "otro@ejemplo.com",
+    "cedula": "0987654321",
+    "hashed_password": "pas123"
+}
+
+### Intentar crear usuario con email duplicado (debe fallar)
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+    "email": "{{email}}",
+    "cedula": "1111111111",
+    "hashed_password": "nuevo_password_hash"
+}
+
+### Intentar crear usuario con cédula duplicada (debe fallar)
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+    "email": "nuevo@ejemplo.com",
+    "cedula": "{{cedula}}",
+    "hashed_password": "nuevo_password_hash"
+} 
