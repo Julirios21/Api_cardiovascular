@@ -13,7 +13,7 @@ app.use(express.json());
 // Ruta para obtener todos los usuarios
 app.get('/usuarios', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM task');
+    const result = await pool.query('SELECT * FROM users');
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -24,7 +24,7 @@ app.get('/usuarios', async (req, res) => {
 app.get('/usuarios/:correo', async (req, res) => {
   const { correo } = req.params;
   try {
-    const result = await pool.query('SELECT * FROM task WHERE correo = $1', [correo]);
+    const result = await pool.query('SELECT * FROM users WHERE correo = $1', [correo]);
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Usuario no encontrado' });
     }
