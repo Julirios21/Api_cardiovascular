@@ -10,6 +10,15 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Ruta raíz
+app.get('/', (req, res) => {
+  res.json({
+    message: 'API Cardiovascular funcionando correctamente',
+    status: 'OK',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Ruta para obtener todos los usuarios
 app.get('/usuarios', async (req, res) => {
   try {
@@ -56,20 +65,6 @@ app.post('/usuarios', async (req, res) => {
     });
   } catch (err) {
     console.error('Error al crear usuario:', err.message);
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// Ruta para obtener un usuario por correo electrónico
-app.get('/usuarios/:correo', async (req, res) => {
-  const { correo } = req.params;
-  try {
-    const result = await pool.query('SELECT id, email, cedula FROM users WHERE email = $1', [correo]);
-    if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Usuario no encontrado' });
-    }
-    res.json(result.rows[0]);
-  } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });

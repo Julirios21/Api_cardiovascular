@@ -16,9 +16,6 @@ Content-Type: application/json
 ### Obtener todos los usuarios (GET)
 GET {{baseUrl}}/usuarios
 
-### Obtener usuario por email (GET)
-GET {{baseUrl}}/usuarios/{{email}}
-
 ### Obtener usuario por email y cédula (GET)
 GET {{baseUrl}}/usuarios/{{email}}/{{cedula}}
 
@@ -29,7 +26,7 @@ Content-Type: application/json
 {
     "email": "otro@ejemplo.com",
     "cedula": "0987654321",
-    "hashed_password": "pas123"
+    "hashed_password": "otro_password_hash"
 }
 
 ### Intentar crear usuario con email duplicado (debe fallar)
