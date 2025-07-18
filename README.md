@@ -31,8 +31,7 @@ El sistema tiene como objetivo principal recolectar, registrar y consultar infor
 ## 📂 Estructura del proyecto
 
 ```
-cardio-system/
-├── backend/            ← Lógica del servidor (Node.js y Express)
+Api_cardiovascular/     ← Lógica del servidor (Node.js y Express)
 │   ├── database/       ← conexión a DB
 │   ├── node_modules/   ← Dependencias de Node.js
 │   ├── src/            ← Código Fuente(Carpetas: Controllers-libs-middlewares-routes-schemas)
@@ -60,7 +59,7 @@ cardio-system/
 
 ```bash
 git clone https://github.com/tuusuario/cardio-system.git
-cd cardio-system
+cd Api_cardiovascular
 ```
 
 ---
@@ -72,10 +71,9 @@ cd cardio-system
 - npm v8+ (o la versión que estés utilizando).
 - Una instancia de PostgreSQL en ejecución. Puedes usar Docker para una configuración rápida.
 
-### 🔹 Configura el entorno virtual
 
 ```bash
-cd backend
+cd Api_cardiovascular
 npm install
 npm start
 ```
@@ -137,6 +135,7 @@ npm run dev
 ## 👥 Autores
 
 - Juan Camilo Ausecha Gutiérrez
+- Julian Rios
 - Universidad Libre - Facultad de Ingeniería
 - Proyecto de grado 2025
 
