@@ -29,46 +29,6 @@ app.get('/usuarios', async (req, res) => {
   }
 });
 
-// Ruta para crear un nuevo usuario
-app.post('/usuarios', async (req, res) => {
-  const { email, cedula, hashed_password } = req.body;
-  
-  try {
-    // Verificar que todos los campos requeridos estén presentes
-    if (!email || !cedula || !hashed_password) {
-      return res.status(400).json({ 
-        error: 'Todos los campos son requeridos: email, cedula, hashed_password' 
-      });
-    }
-
-    // Verificar que el email no esté duplicado
-    const existingUser = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (existingUser.rows.length > 0) {
-      return res.status(409).json({ error: 'El email ya está registrado' });
-    }
-
-    // Verificar que la cédula no esté duplicada
-    const existingCedula = await pool.query('SELECT * FROM users WHERE cedula = $1', [cedula]);
-    if (existingCedula.rows.length > 0) {
-      return res.status(409).json({ error: 'La cédula ya está registrada' });
-    }
-
-    // Insertar el nuevo usuario
-    const result = await pool.query(
-      'INSERT INTO users (email, cedula, hashed_password) VALUES ($1, $2, $3) RETURNING *',
-      [email, cedula, hashed_password]
-    );
-
-    res.status(201).json({
-      message: 'Usuario creado exitosamente',
-      user: result.rows[0]
-    });
-  } catch (err) {
-    console.error('Error al crear usuario:', err.message);
-    res.status(500).json({ error: err.message });
-  }
-});
-
 // Ruta para obtener un usuario por correo y cédula
 app.get('/usuarios/:correo/:cedula', async (req, res) => {
   const { correo, cedula } = req.params;
@@ -84,6 +44,66 @@ app.get('/usuarios/:correo/:cedula', async (req, res) => {
     res.json(result.rows[0]);
   } catch (err) {
     console.error('Error al obtener el usuario:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// POST
+
+app.post('/registro-completo', async (req, res) => {
+  const {
+    email,
+    cedula,
+    password,
+    fecha_valoracion,
+    nombre_completo,
+    fecha_nacimiento,
+    edad,
+    genero,
+    ocupacion,
+    nivel_educativo,
+    telefono,
+    direccion,
+    eps
+  } = req.body;
+
+  try {
+    // Verificar duplicados en users
+    const existingUser = await pool.query('SELECT id FROM users WHERE email = $1 OR cedula = $2', [email, cedula]);
+    if (existingUser.rows.length > 0) {
+      return res.status(409).json({ error: 'El email o la cédula ya están registrados' });
+    }
+
+    // Insertar en users
+    const userResult = await pool.query(
+      'INSERT INTO users (email, cedula, password) VALUES ($1, $2, $3) RETURNING id',
+      [email, cedula, password]
+    );
+    const user_id = userResult.rows[0].id;
+
+
+
+    // Verificar que no exista ya un paciente para ese user_id (opcional)
+    const pacienteResult = await pool.query('SELECT id FROM pacientes WHERE user_id = $1', [user_id]);
+    if (pacienteResult.rows.length > 0) {
+      return res.status(409).json({ error: 'Ya existe información de paciente para este usuario' });
+    }
+
+    //  Insertar en pacientes
+    const insertResult = await pool.query(
+      `INSERT INTO pacientes (
+        user_id, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps
+      ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING *`,
+      [user_id, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps]
+    );
+
+    res.status(201).json({
+      message: 'Usuario y paciente creados exitosamente',
+      paciente: insertResult.rows[0]
+    });
+
+  } catch (err) {
+    console.error('Error en el registro completo:', err.message);
     res.status(500).json({ error: err.message });
   }
 });

@@ -1,50 +1,58 @@
 ### Variables de entorno
 @baseUrl = http://localhost:3000
-@email = usuario@ejemplo.com
-@cedula = 1234567890
 
-### Crear un nuevo usuario (POST)
-POST {{baseUrl}}/usuarios
+### Registro completo de usuario y paciente (todos los campos)
+POST {{baseUrl}}/registro-completo
 Content-Type: application/json
 
 {
-    "email": "{{email}}",
-    "cedula": "{{cedula}}",
-    "hashed_password": "pas123"
+  "email": "paciente1@ejemplo.com",
+  "cedula": "1234567890",
+  "password": "hash_password_123",
+  "fecha_valoracion": "2024-07-16",
+  "nombre_completo": "Juan Pérez",
+  "fecha_nacimiento": "1990-01-01",
+  "edad": 34,
+  "genero": "Masculino",
+  "ocupacion": "Ingeniero",
+  "nivel_educativo": "Universitario",
+  "telefono": "3001234567",
+  "direccion": "Calle 123 #45-67",
+  "eps": "Salud Total"
 }
 
-### Obtener todos los usuarios (GET)
-GET {{baseUrl}}/usuarios
-
-### Obtener usuario por email y cédula (GET)
-GET {{baseUrl}}/usuarios/{{email}}/{{cedula}}
-
-### Crear otro usuario para pruebas
-POST {{baseUrl}}/usuarios
+### Registro completo de usuario y paciente (solo obligatorios)
+POST {{baseUrl}}/registro-completo
 Content-Type: application/json
 
 {
-    "email": "otro@ejemplo.com",
-    "cedula": "0987654321",
-    "hashed_password": "otro_password_hash"
+  "email": "paciente2@ejemplo.com",
+  "cedula": "9876543210",
+  "password": "hash_password_456",
+  "nombre_completo": "Ana Gómez"
 }
 
-### Intentar crear usuario con email duplicado (debe fallar)
-POST {{baseUrl}}/usuarios
+### Intentar registrar usuario con email duplicado (debe fallar)
+POST {{baseUrl}}/registro-completo
 Content-Type: application/json
 
 {
-    "email": "{{email}}",
-    "cedula": "1111111111",
-    "hashed_password": "nuevo_password_hash"
+  "email": "paciente1@ejemplo.com",
+  "cedula": "1111111111",
+  "password": "otro_hash",
+  "nombre_completo": "Pedro Duplicado"
 }
 
-### Intentar crear usuario con cédula duplicada (debe fallar)
-POST {{baseUrl}}/usuarios
+### Intentar registrar usuario con cédula duplicada (debe fallar)
+POST {{baseUrl}}/registro-completo
 Content-Type: application/json
 
 {
-    "email": "nuevo@ejemplo.com",
-    "cedula": "{{cedula}}",
-    "hashed_password": "nuevo_password_hash"
-} 
+  "email": "nuevo@ejemplo.com",
+  "cedula": "1234567890",
+  "password": "otro_hash",
+  "nombre_completo": "Cédula Duplicada"
+}
+
+### Obtener usuario por correo y cédula (GET)
+GET {{baseUrl}}/usuarios/paciente1@ejemplo.com/1234567890 
