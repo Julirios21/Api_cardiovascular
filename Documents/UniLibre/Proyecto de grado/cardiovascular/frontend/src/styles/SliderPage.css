@@ -1,0 +1,57 @@
+/* Imagen del slider */
+.slider-img {
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.5);
+  transition: transform 0.3s ease;
+}
+
+/* Centra el contenido del caption */
+.centered-caption {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: auto;
+  right: auto;
+  position: absolute;
+  text-align: center;
+  color: white;
+}
+
+.centered-caption h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+
+.centered-caption p {
+  font-size: 1.25rem;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+/* Controles del carrusel más visibles */
+.custom-arrow {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-size: 50%, 50%;
+  filter: invert(1);
+}
+/* Asegura que el caption cubra toda la imagen y centre su contenido */
+.full-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 2rem;
+}
+
+.full-caption h2,
+.full-caption p {
+  color: white;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+}
+
