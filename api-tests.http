@@ -56,3 +56,21 @@ Content-Type: application/json
 
 ### Obtener usuario por correo y cédula (GET)
 GET {{baseUrl}}/usuarios/paciente1@ejemplo.com/1234567890 
+
+### Importar usuarios y pacientes desde CSV (POST)
+# Cambia la ruta del archivo a un CSV válido en tu máquina
+POST {{baseUrl}}/api/importar-csv
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="archivo"; filename="ejemplo.csv"
+Content-Type: text/csv
+
+email,cedula,password,fecha_valoracion,nombre_completo,fecha_nacimiento,edad,genero,ocupacion,nivel_educativo,telefono,direccion,eps
+usuario1@ejemplo.com,1111111111,pass1,2024-07-16,Usuario Uno,1990-01-01,34,Masculino,Ingeniero,Universitario,3000000001,Calle 1,Salud Total
+usuario2@ejemplo.com,2222222222,pass2,2024-07-17,Usuario Dos,1985-05-05,39,Femenino,Doctora,Maestría,3000000002,Calle 2,Sanitas
+------WebKitFormBoundary7MA4YWxkTrZu0gW-- 
+
+### Eliminar un usuario por ID (DELETE)
+# Cambia el ID por el del usuario que deseas eliminar
+DELETE {{baseUrl}}/usuarios/1 

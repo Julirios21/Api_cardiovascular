@@ -6,6 +6,8 @@ const pool = require('./config/db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const importarCSV = require('./routes/importarCSV');
+
 // Middleware CORS
 app.use(cors());
 app.use(express.json());
@@ -50,6 +52,10 @@ app.get('/usuarios/:correo/:cedula', async (req, res) => {
 
 // POST
 
+
+app.use('/api', importarCSV);
+
+
 app.post('/registro-completo', async (req, res) => {
   const {
     email,
@@ -79,12 +85,12 @@ app.post('/registro-completo', async (req, res) => {
       'INSERT INTO usuario (email, cedula, password) VALUES ($1, $2, $3) RETURNING id',
       [email, cedula, password]
     );
-    const user_id = userResult.rows[0].id;
+    const usuario_id = userResult.rows[0].id;
 
 
 
-    // Verificar que no exista ya un paciente para ese user_id (opcional)
-    const pacienteResult = await pool.query('SELECT id FROM pacientes WHERE user_id = $1', [user_id]);
+    // Verificar que no exista ya un paciente para ese usuario_id (opcional)
+    const pacienteResult = await pool.query('SELECT id FROM pacientes WHERE usuario_id = $1', [usuario_id]);
     if (pacienteResult.rows.length > 0) {
       return res.status(409).json({ error: 'Ya existe información de paciente para este usuario' });
     }
@@ -92,9 +98,9 @@ app.post('/registro-completo', async (req, res) => {
     //  Insertar en pacientes
     const insertResult = await pool.query(
       `INSERT INTO pacientes (
-        user_id, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps
+        usuario_id, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps
       ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING *`,
-      [user_id, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps]
+      [usuario_id, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps]
     );
 
     res.status(201).json({
