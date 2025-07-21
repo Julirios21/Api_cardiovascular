@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 // Ruta para obtener todos los usuarios
 app.get('/usuarios', async (req, res) => {
   try {
-    const result = await pool.query('SELECT id, email, cedula FROM users');
+    const result = await pool.query('SELECT id, email, cedula FROM usuario');
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -35,7 +35,7 @@ app.get('/usuarios/:correo/:cedula', async (req, res) => {
 
   try {
     const result = await pool.query(
-      'SELECT id, email, cedula FROM users WHERE email = $1 AND cedula = $2',
+      'SELECT id, email, cedula FROM usuario WHERE email = $1 AND cedula = $2',
       [correo, cedula]
     );
     if (result.rows.length === 0) {
@@ -68,15 +68,15 @@ app.post('/registro-completo', async (req, res) => {
   } = req.body;
 
   try {
-    // Verificar duplicados en users
-    const existingUser = await pool.query('SELECT id FROM users WHERE email = $1 OR cedula = $2', [email, cedula]);
+    // Verificar duplicados en usuario
+    const existingUser = await pool.query('SELECT id FROM usuario WHERE email = $1 OR cedula = $2', [email, cedula]);
     if (existingUser.rows.length > 0) {
       return res.status(409).json({ error: 'El email o la cédula ya están registrados' });
     }
 
-    // Insertar en users
+    // Insertar en usuario
     const userResult = await pool.query(
-      'INSERT INTO users (email, cedula, password) VALUES ($1, $2, $3) RETURNING id',
+      'INSERT INTO usuario (email, cedula, password) VALUES ($1, $2, $3) RETURNING id',
       [email, cedula, password]
     );
     const user_id = userResult.rows[0].id;
@@ -110,4 +110,22 @@ app.post('/registro-completo', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en el puerto ${PORT}`);
+});
+
+
+// DELETE
+// Eliminar un usuario por id
+app.delete('/usuarios/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    // Elimina el usuario, y la BD eliminará en cascada los datos relacionados
+    const result = await pool.query('DELETE FROM usuario WHERE id = $1 RETURNING *', [id]);
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+    res.json({ message: 'Usuario eliminado correctamente' });
+  } catch (err) {
+    console.error('Error al eliminar el usuario:', err.message);
+    res.status(500).json({ error: err.message });
+  }
 });
