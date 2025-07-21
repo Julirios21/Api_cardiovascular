@@ -68,9 +68,9 @@ Content-Type: text/csv
 
 email,cedula,password,fecha_valoracion,nombre_completo,fecha_nacimiento,edad,genero,ocupacion,nivel_educativo,telefono,direccion,eps
 usuario1@ejemplo.com,1111111111,pass1,2024-07-16,Usuario Uno,1990-01-01,34,Masculino,Ingeniero,Universitario,3000000001,Calle 1,Salud Total
-usuario2@ejemplo.com,2222222222,pass2,2024-07-17,Usuario Dos,1985-05-05,39,Femenino,Doctora,Maestría,3000000002,Calle 2,Sanitas
+usuario3@ejemplo.com,1029980139,pass2,2024-07-17,Usuario Dos,1985-05-05,,Femenino,Doctora,Maestría,3000000002,Calle 2,Sanitas
 ------WebKitFormBoundary7MA4YWxkTrZu0gW-- 
 
 ### Eliminar un usuario por ID (DELETE)
 # Cambia el ID por el del usuario que deseas eliminar
-DELETE {{baseUrl}}/usuarios/1 
+DELETE {{baseUrl}}/usuarios/8

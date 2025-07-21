@@ -17,6 +17,9 @@ router.post('/importar-csv', upload.single('archivo'), (req, res) => {
     .on('end', async () => {
       try {
         for (const fila of resultados) {
+          // Función para limpiar campos vacíos
+          const limpiarCampo = (valor) => (valor === '' ? null : valor);
+
           // Asegúrate de que las columnas del CSV coincidan con las siguientes:
           const { email, cedula, password, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps } = fila;
 
@@ -31,12 +34,27 @@ router.post('/importar-csv', upload.single('archivo'), (req, res) => {
           );
           const usuario_id = userResult.rows[0].id;
 
+          // Preparar datos de paciente, limpiando campos vacíos
+          const datosPaciente = [
+            usuario_id,
+            limpiarCampo(fecha_valoracion),
+            limpiarCampo(nombre_completo),
+            limpiarCampo(fecha_nacimiento),
+            limpiarCampo(edad),
+            limpiarCampo(genero),
+            limpiarCampo(ocupacion),
+            limpiarCampo(nivel_educativo),
+            limpiarCampo(telefono),
+            limpiarCampo(direccion),
+            limpiarCampo(eps)
+          ];
+
           // Insertar en pacientes
           await pool.query(
             `INSERT INTO pacientes (
               usuario_id, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps
             ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)`,
-            [usuario_id, fecha_valoracion, nombre_completo, fecha_nacimiento, edad, genero, ocupacion, nivel_educativo, telefono, direccion, eps]
+            datosPaciente
           );
         }
 
