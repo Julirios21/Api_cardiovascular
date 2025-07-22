@@ -42,31 +42,31 @@ Herramienta de desarrollo que reinicia automáticamente el servidor cuando detec
 
 ### Frontend (React + Bootstrap)
 
-- **`React`** `^19.1.0`
+- **`React`** `19.1.0`
   Biblioteca de JavaScript para construir interfaces de usuario interactivas.
 
-- **`Vite`** `^7.0.4`
+- **`Vite`** `7.0.4`
   Herramienta de construcción rápida para proyectos frontend, optimizada para desarrollo.
 
-- **`Bootstrap`** `^5.3.7`
+- **`Bootstrap`** `5.3.7`
   Framework CSS popular para un diseño web responsivo y estético.
 
-- **`React Router DOM`** `^7.6.3`
+- **`React Router DOM`** `7.6.3`
   Para gestionar la navegación y las rutas en la aplicación de React.
 
-- **`Axios`** `^1.10.0`
+- **`Axios`** `1.10.0`
   Cliente HTTP basado en promesas para realizar peticiones al backend.
 
-- **`React Icons`** `^5.5.0`
+- **`React Icons`** `5.5.0`
   Biblioteca que proporciona una amplia variedad de iconos.
 
-- **`js-cookie`** `^3.0.5`
+- **`js-cookie`** `3.0.5`
   Utilizado para gestionar las cookies en el cliente (token de sesión).
 
-- **`react-dom`** `^19.1.0`
+- **`react-dom`** `19.1.0`
   Punto de entrada DOM para React (renderiza los componentes React en el navegador).
 
-- **`react-hook-form`** `^7.60.0`
+- **`react-hook-form`** `7.60.0`
   Para una gestión de formularios más eficiente, con validación y manejo de estado.
 
 ---
@@ -74,25 +74,25 @@ Herramienta de desarrollo que reinicia automáticamente el servidor cuando detec
 
 El frontend móvil está desarrollado con React Native, para una aplicación nativa.
 
-- **`@react-native-async-storage/async-storage`** `^1.21.0`
+- **`@react-native-async-storage/async-storage`** `1.21.0`
   Almacenamiento persistente clave-valor asíncrono para React Native.
 
-- **`@react-navigation/bottom-tabs`** `^6.5.11`
+- **`@react-navigation/bottom-tabs`** `6.5.11`
   Implementación de pestañas de navegación en la parte inferior de la pantalla para React Navigation.
 
-- **`@react-navigation/native`** `^6.1.9`
+- **`@react-navigation/native`** `6.1.9`
   Componentes principales de navegación para React Native, que permiten definir la estructura de navegación de la aplicación.
 
-- **`@react-navigation/native-stack`** `^6.9.17`
+- **`@react-navigation/native-stack`** `6.9.17`
   Navegador de pila nativo para React Navigation, proporcionando una experiencia de navegación optimizada para cada plataforma.
 
-- **`axios`** `^1.6.7`
+- **`axios`** `1.6.7`
   Cliente HTTP basado en promesas para realizar peticiones al backend desde la aplicación móvil.
 
-- **`expo`** `~53.0.11`
+- **`expo`** `53.0.11`
   Plataforma para el desarrollo de aplicaciones universales de React Native, incluyendo herramientas y servicios.
 
-- **`expo-status-bar`** `~2.2.3`
+- **`expo-status-bar`** `2.2.3`
   Componente de Expo para controlar la barra de estado de la aplicación.
 
 - **`react`** `18.2.0`
@@ -104,7 +104,7 @@ El frontend móvil está desarrollado con React Native, para una aplicación nat
 - **`react-native-safe-area-context`** `4.8.2`
   Provee información sobre los límites de "área segura" del dispositivo (donde el contenido no es obstruido por elementos del sistema operativo, como el notch).
 
-- **`react-native-screens`** `~3.29.0`
+- **`react-native-screens`** `3.29.0`
   Primitivas para implementar pantallas nativas de manera eficiente, parte del ecosistema de React Navigation.
 
 ---
