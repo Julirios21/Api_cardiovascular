@@ -10,16 +10,40 @@ El sistema tiene como objetivo principal recolectar, registrar y consultar infor
 
 ### Backend (Node.js + Express)
 
-- **Node.js**: Entorno de ejecución de JavaScript.
-- **Express**: Framework web ligero y flexible para Node.js.
-- **PostgreSQL**: ORM (Object-Relational Mapper) para Node.js, facilitando la interacción con PostgreSQL.
-- **CORS**: Middleware para habilitar solicitudes de recursos de origen cruzado.
-- **Nodemon**: Herramienta para reiniciar automáticamente el servidor durante el desarrollo.
-- **dotenv**: Para cargar variables de entorno desde un archivo .env.
+- **`Node.js`** `18.x`  
+Entorno de ejecución para JavaScript del lado del servidor.
+
+- **`npm`** `11.3.0`  
+  Administrador de paquetes oficial de **Node.js**, utilizado para instalar y gestionar dependencias del proyecto.
+
+- **`Express`** `4.18.2`
+Framework web minimalista y flexible para construir APIs y servidores en Node.js.
+
+- **`PostgreSQL`** `16`
+Motor de base de datos relacional robusto y de código abierto, utilizado para almacenar y gestionar datos estructurados.
+
+- **`pg`** `8.11.3`
+Cliente oficial de PostgreSQL para Node.js, utilizado para ejecutar consultas SQL desde el backend.
+
+- **`csv-parser`** `3.2.0`
+Módulo para leer archivos .csv y convertir sus filas en objetos JavaScript, útil para importar datos.
+
+- **`multer`** `2.0.2`
+Middleware de Express para manejar cargas de archivos (multipart/form-data), como archivos CSV.
+
+- **`cors`** `2.8.5`
+Middleware que habilita solicitudes de recursos de origen cruzado (CORS), útil para comunicación entre frontend y backend.
+
+- **`dotenv`** `6.3.1`
+Carga variables de entorno desde un archivo .env a process.env, para gestionar configuraciones sensibles.
+
+- **`nodemon`** `3.0.2`
+Herramienta de desarrollo que reinicia automáticamente el servidor cuando detecta cambios en el código fuente.
 
 ### Frontend (React + Bootstrap)
 
 - **React**: Biblioteca de JavaScript para construir interfaces de usuario interactivas.
+- **React-Native**
 - **Vite**: Herramienta de construcción rápida para proyectos frontend, optimizada para desarrollo.
 - **Bootstrap**: Framework CSS popular para un diseño web responsivo y estético.
 - **React Router DOM**: Para gestionar la navegación y las rutas en la aplicación de React.
@@ -69,7 +93,7 @@ cd Api_cardiovascular
 ### 🔹 Requisitos
 - Node.js v16+ (o la versión que estés utilizando).
 - npm v8+ (o la versión que estés utilizando).
-- Una instancia de PostgreSQL en ejecución. Puedes usar Docker para una configuración rápida.
+- Una instancia de PostgreSQL en ejecución. Puedes usar *Podman* para una configuración rápida.
 
 
 ```bash
