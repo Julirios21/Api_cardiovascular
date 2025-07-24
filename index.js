@@ -50,6 +50,32 @@ app.get('/usuarios/:correo/:cedula', async (req, res) => {
   }
 });
 
+// Nuevo endpoint para obtener todos los datos detallados de los usuarios
+app.get('/usuarios/detallado', async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT 
+        u.id as usuario_id, u.email, u.cedula, u.password, u.tipo_usuario,
+        p.fecha_valoracion, p.nombre_completo, p.fecha_nacimiento, p.edad, p.genero, p.ocupacion, p.nivel_educativo, p.telefono, p.direccion, p.eps,
+        m.ovario_poliquistico, m.primera_menstruacion, m.diabetes_gestacional, m.hijos_bajo_peso, m.parto_pretermino, m.menopausia,
+        a.infarto, a.fecha_infarto, a.angina, a.fecha_angina, a.acv, a.fecha_acv, a.eap, a.fecha_eap, a.insuficiencia_cardiaca, a.fecha_ic, a.arritmias, a.fecha_arritmias, a.revascularizacion, a.fecha_revascularizacion, a.fecha_dispositivos_cardiacos,
+        f.hta, f.hta_desde, f.hta_tratamiento, f.diabetes as diabetes_riesgo, f.dm_desde, f.dm_tratamiento, f.dislipidemia, f.dislipidemia_desde, f.dislipidemia_tratamiento, f.enfermedad_renal, f.erc_estadio, f.erc_tratamiento, f.tabaquismo, f.anos_tabaquismo, f.alcoholismo, f.cantidad_frecuencia, f.sedentarismo, f.tipo_actividad, f.apnea_sueno, f.frecuencia_fuma, f.vapeo, f.anos_vapeo, f.frecuencia_vapeo, f.dias_ejercicio, f.minuto_ejercicio, f.patologias, f.programas_paxientes, f.medicamentos,
+        af.historial_familiar, af.integrante_familia
+      FROM usuario u
+      LEFT JOIN pacientes p ON u.id = p.usuario_id
+      LEFT JOIN mujeres m ON u.id = m.usuario_id
+      LEFT JOIN antecedentes_personales a ON u.id = a.usuario_id
+      LEFT JOIN factores_riesgo f ON u.id = f.usuario_id
+      LEFT JOIN antecedentes_familiares af ON u.id = af.usuario_id
+      ORDER BY u.id
+    `);
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error al obtener los datos detallados:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // POST
 
 

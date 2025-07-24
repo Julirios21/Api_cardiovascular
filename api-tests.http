@@ -71,6 +71,19 @@ usuario1@ejemplo.com,1111111111,pass1,2024-07-16,Usuario Uno,1990-01-01,34,Mascu
 usuario3@ejemplo.com,1029980139,pass2,2024-07-17,Usuario Dos,1985-05-05,,Femenino,Doctora,Maestría,3000000002,Calle 2,Sanitas
 ------WebKitFormBoundary7MA4YWxkTrZu0gW-- 
 
+### Importar usuarios y pacientes desde CSV con todos los campos (POST)
+POST {{baseUrl}}/api/importar-csv
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="archivo"; filename="ejemplo_completo.csv"
+Content-Type: text/csv
+
+email,cedula,password,tipo_usuario,fecha_valoracion,nombre_completo,fecha_nacimiento,edad,genero,ocupacion,nivel_educativo,telefono,direccion,eps,ovario_poliquistico,primera_menstruacion,diabetes_gestacional,hijos_bajo_peso,parto_pretermino,menopausia,infarto,fecha_infarto,angina,fecha_angina,acv,fecha_acv,eap,fecha_eap,insuficiencia_cardiaca,fecha_ic,arritmias,fecha_arritmias,revascularizacion,fecha_revascularizacion,fecha_dispositivos_cardiacos,hta,hta_desde,hta_tratamiento,diabetes,dm_desde,dm_tratamiento,dislipidemia,dislipidemia_desde,dislipidemia_tratamiento,enfermedad_renal,erc_estadio,erc_tratamiento,tabaquismo,anos_tabaquismo,alcoholismo,cantidad_frecuencia,sedentarismo,tipo_actividad,apnea_sueno,frecuencia_fuma,vapeo,anos_vapeo,frecuencia_vapeo,dias_ejercicio,minuto_ejercicio,patologias,programas_paxientes,medicamentos,historial_familiar,integrante_familia
+usuario1@ejemplo.com,1111111111,pass1,externo,2024-07-16,Usuario Uno,1990-01-01,34,Masculino,Ingeniero,Universitario,3000000001,Calle 1,Salud Total,si,12,si,1,0,no,si,2020-01-01,no,,,no,,,si,2021-05-05,si,2022-03-03,2022-03-03,si,2010-01-01,IECA,si,2015-01-01,Estatina,si,3,Diálisis,si,moderado,si,ocasional,no,0,,3,30,hipertensión;asma,ninguno,paracetamol,si,"madre: hipertensión; padre: diabetes"
+usuario2@ejemplo.com,2222222222,pass2,paciente,2024-07-17,Usuario Dos,1985-05-05,39,Femenino,Doctora,Maestría,3000000002,Calle 2,Sanitas,no,13,no,0,1,si,no,,,si,2018-08-08,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,no,,,
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
 ### Eliminar un usuario por ID (DELETE)
 # Cambia el ID por el del usuario que deseas eliminar
-DELETE {{baseUrl}}/usuarios/8
+DELETE {{baseUrl}}/usuarios/3
