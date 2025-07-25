@@ -24,7 +24,27 @@ app.get('/', (req, res) => {
 // Ruta para obtener todos los usuarios
 app.get('/usuarios', async (req, res) => {
   try {
-    const result = await pool.query('SELECT id, email, cedula FROM usuario');
+    const result = await pool.query('SELECT id, email, cedula,tipo_usuario FROM usuario');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Ruta para obtener los usuarios externos 
+app.get('/externo', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT id, email, cedula FROM usuario WHERE tipo_usuario = \'externo\';');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Ruta para obtener los usuarios internos 
+app.get('/interno', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT id, email, cedula FROM usuario WHERE tipo_usuario = \'interno\';');
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
