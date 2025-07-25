@@ -1,5 +1,7 @@
 # 🫀 Sistema de Control a Problemas Cardiovasculares
 
+**Version v0.1.0 ✅**
+
 Este es un proyecto de grado desarrollado con **Node.js y Express** para el backend y **React + Bootstrap** para el frontend.
 
 El sistema tiene como objetivo principal recolectar, registrar y consultar información socioclínica de pacientes. Los datos recopilados apoyarán procesos diagnósticos, investigaciones médicas y evaluaciones institucionales.
