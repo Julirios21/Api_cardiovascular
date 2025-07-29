@@ -1,0 +1,151 @@
+/* Navbar.css */
+
+/* Estilos generales del Navbar */
+.navbar {
+  background-color: #212529 !important;
+  border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
+  display: flex;
+  align-items: center;
+  background: transparent; /* Fondo transparente para el efecto de desplazamiento */
+
+}
+
+/* Estilos del Logo y Título */
+.navbar-logo {
+  height: 55px; /* Ajusta esta altura para tu escudo */
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+
+.navbar-title {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 350px;
+}
+
+/* ----------------------------------------------------------- */
+/* ESTILOS CLAVE PARA EL HIGHLIGHT EN HOVER/ACTIVE DE NAV-LINK */
+/* ----------------------------------------------------------- */
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.75); /* Color del texto de los enlaces normales */
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-left: 0.2rem; /* Espacio entre los enlaces */
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem; /* Padding para el área del highlight */
+  border-radius: 0.5rem; /* <<--- ESTO REDONDEA EL HIGHLIGHT */
+  transition: all 0.3s ease; /* Transición suave para todos los cambios */
+  display: flex; /* Para centrar el icono y el texto */
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-nav .nav-link:hover {
+  color: rgb(218, 57, 57); /* Color del texto en hover */
+  background-color: rgb(217, 214, 214); /* Fondo del highlight en hover */
+  cursor: pointer;
+}
+
+.navbar-nav .nav-link.active {
+  color: #ffffff; /* Color del texto cuando el enlace está activo */
+
+  font-weight: 600; /* Opcional: negrita para el enlace activo */
+}
+
+
+/* Estilos para el dropdown del usuario autenticado (se mantienen) */
+.nav-item.dropdown .dropdown-toggle {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.dropdown-menu {
+  background-color: #ffffff;
+  border: none;
+}
+
+.dropdown-menu .dropdown-item {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #495057;
+  color: #ffffff;
+}
+
+.dropdown-menu .dropdown-divider {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Ajustes responsive  */
+@media (min-width: 992px) {
+  .navbar-nav .nav-link {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-logo {
+    height: 45px;
+  }
+  .navbar-title {
+    font-size: 1.2rem;
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .navbar-nav {
+    text-align: center;
+    width: 100%;
+  }
+  .navbar-nav .nav-item {
+    margin: 0.3rem 0;
+  }
+  .navbar-nav .nav-link {
+      padding: 0.4rem 0.6rem;
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-logo {
+    height: 35px;
+  }
+  .navbar-title {
+    font-size: 1rem;
+    max-width: 180px;
+    white-space: normal;
+  }
+}
+
+
+/* Navbar transparente al inicio */
+.navbar-transparent {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar con fondo al hacer scroll */
+.navbar-scrolled {
+  background-color: #000000 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  color: #000000;
+}
+
