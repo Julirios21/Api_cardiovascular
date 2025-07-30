@@ -42,6 +42,8 @@ Carga variables de entorno desde un archivo .env a process.env, para gestionar c
 - **`nodemon`** `3.0.2`
 Herramienta de desarrollo que reinicia automáticamente el servidor cuando detecta cambios en el código fuente.
 
+---
+
 ### Frontend (React + Bootstrap)
 
 - **`React`** `19.1.0`
@@ -71,7 +73,6 @@ Herramienta de desarrollo que reinicia automáticamente el servidor cuando detec
 - **`react-hook-form`** `7.60.0`
   Para una gestión de formularios más eficiente, con validación y manejo de estado.
 
----
 ### Frontend Móvil (React Native)
 
 El frontend móvil está desarrollado con React Native, para una aplicación nativa.
@@ -108,6 +109,13 @@ El frontend móvil está desarrollado con React Native, para una aplicación nat
 
 - **`react-native-screens`** `3.29.0`
   Primitivas para implementar pantallas nativas de manera eficiente, parte del ecosistema de React Navigation.
+
+---
+
+### Certificado **HTTPS**
+<a href="https://certbot.eff.org" target="_blank">
+  <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/8babe1ec-aa4d-41e8-971f-bfa9e617fca5" />
+</a>
 
 ---
 
