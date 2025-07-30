@@ -55,7 +55,7 @@ Content-Type: application/json
 }
 
 ### Obtener usuario por correo y cédula (GET)
-GET {{baseUrl}}/usuarios/paciente1@ejemplo.com/1234567890 
+GET {{baseUrl}}/usuarios/usuario1@ejemplo.com/1111111111
 
 ### Importar usuarios y pacientes desde CSV (POST)
 # Cambia la ruta del archivo a un CSV válido en tu máquina

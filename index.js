@@ -34,12 +34,29 @@ app.get('/usuarios', async (req, res) => {
 // Ruta para obtener los usuarios externos 
 app.get('/externo', async (req, res) => {
   try {
-    const result = await pool.query('SELECT id, email, cedula FROM usuario WHERE tipo_usuario = \'externo\';');
-    res.json(result.rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+    // Consultas a cada tabla
+    const pacientes = await pool.query('SELECT * FROM pacientes');
+    const mujeres = await pool.query('SELECT * FROM mujeres');
+    const antecedentes_personales = await pool.query('SELECT * FROM antecedentes_personales');
+    const factores_riesgo = await pool.query('SELECT * FROM factores_riesgo');
+    const antecedentes_familiares = await pool.query('SELECT * FROM antecedentes_familiares');
+
+    // Aquí puedes agregar los datos que ya retornabas antes, si los hay
+    // Ejemplo: const otrosDatos = await pool.query('SELECT ...');
+
+    res.json({
+      // ...otrosDatos.rows, // si tienes otros datos que ya retornabas
+      pacientes: pacientes.rows,
+      mujeres: mujeres.rows,
+      antecedentes_personales: antecedentes_personales.rows,
+      factores_riesgo: factores_riesgo.rows,
+      antecedentes_familiares: antecedentes_familiares.rows
+    });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error al obtener los datos' });
+    }
+  });
 
 // Ruta para obtener los usuarios internos 
 app.get('/interno', async (req, res) => {
