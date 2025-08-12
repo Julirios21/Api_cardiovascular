@@ -1,0 +1,5 @@
+id, usuario_id, fecha_valoracion, nombre_completo   , documento_identidad, fecha_nacimiento, edad, genero   , ocupacion            , nivel_educativo, telefono  , direccion         , eps      , estado_civil
+ 1,      54321, 2024-05-20      , Ana Torres Garcia ,          1018456789, 1990-03-15      ,   34, Femenino , Médico               , Universitario  , 3001234567, Carrera 10 # 20-30, Sura     , Casada
+ 2,      67890, 2024-05-20      , Luis Ramirez Soto ,          1020567890, 1985-07-22      ,   38, Masculino, Ingeniero de Sistemas, Posgrado       , 3109876543, Calle 5 # 15-25   , Nueva EPS, Soltero
+ 3,      11223, 2024-05-21      , Maria Perez Diaz  ,          1030678901, 1995-11-10      ,   28, Femenino , Diseñadora Gráfica   , Tecnólogo      , 3203456789, Avenida 30 # 45-50, Coomeva  , Unión Libre
+ 4,      44556, 2024-05-21      , Carlos Gomez Lopez,          1040789012, 2000-01-05      ,   24, Masculino, Estudiante           , Bachiller      , 3016543210, Diagonal 2 # 8-12 , Famisanar, Soltero

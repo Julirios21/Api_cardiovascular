@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 // Importa las rutas de usuario y autenticación
 const userRoutes = require('./routes/UserRoutes.js'); 
 const AuthRoutes = require('./routes/AuthRoutes.js'); 
+const ImportCSVRoutes = require('./routes/ImportCSV');
 const PatientRoutes = require('./routes/PatientRoutes');
 
 const app = express();
@@ -46,6 +47,9 @@ app.use('/usuarios', userRoutes);
 // RUTAS DE AUTENTICACIÓN
 // Todas las rutas definidas en AuthRoutes.js se montarán bajo el prefijo '/api'
 app.use('/api', AuthRoutes); 
+
+// RUTAS DE IMPORTACIÓN CSV
+app.use('/api', ImportCSVRoutes);
 
 // Usar las rutas de pacientes
 // Todas las rutas definidas en PatientRoutes.js se montarán bajo el prefijo '/api

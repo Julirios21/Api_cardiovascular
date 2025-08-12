@@ -12,6 +12,7 @@ import NotFound from "../pages/NotFound";
 import ClinicalFormPage from "../pages/ClinicalFormPage";
 import PrivateRoute from "../components/PrivateRoute";
 
+
 function LayoutWrapper() {
   const location = useLocation();
   const hideNavbarRoutes = ["/login", "/register", "/profile"];
@@ -24,9 +25,10 @@ function LayoutWrapper() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} /> 
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/clinica-form" element={<ClinicalFormPage />} />
+        <Route path="/clinica-form" element={<ClinicalFormPage />} /> 
+
         <Route
           path="/tasks"
           element={

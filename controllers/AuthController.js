@@ -60,7 +60,7 @@ exports.signup = async (req, res, next) => {
     );
 
     const token = await createAccessToken({ id: result.rows[0].id });
-
+ 
     res.cookie("token", token, {
       secure: true,
       sameSite: "none",
