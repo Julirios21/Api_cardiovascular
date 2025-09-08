@@ -1,0 +1,31 @@
+body {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.why-text {
+  text-align: justify;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.why-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.why-list li {
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+}
+.why-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.icon-red {
+  color: red;
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+

@@ -1,6 +1,6 @@
 /* Imagen del slider */
 .slider-img {
-  height: 100vh;
+  height: 85vh;
   object-fit: cover;
   filter: brightness(0.5);
   transition: transform 0.3s ease;

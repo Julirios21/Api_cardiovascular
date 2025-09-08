@@ -24,7 +24,6 @@ function CsvUploader() {
     setLoading(true);
     const formData = new FormData();
     // 'csvFile' debe coincidir con el nombre de campo en multer (upload.single('csvFile'))
-    // Si en tu backend usaste 'upload.single('archivo')', cambia 'csvFile' por 'archivo'
     formData.append('csvFile', selectedFile); 
 
     try {

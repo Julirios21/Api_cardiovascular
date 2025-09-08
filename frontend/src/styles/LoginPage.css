@@ -101,7 +101,7 @@
 
 /* Enlace "¿Olvidaste tu contraseña?" */
 .forgot-password-link {
-  color: #20c997; /* Un verde vibrante */
+  color: #fa4d4d; /* Un verde vibrante */
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -114,8 +114,8 @@
 
 /* Botón "INICIAR SESIÓN" */
 .login-button {
-  background-color: #20c997; /* Verde vibrante */
-  border-color: #20c997;
+  background-color: #fa4d4d; /* Verde vibrante */
+  border-color: #fa4d4d;
   color: #ffffff;
   padding: 0.75rem 1.5rem;
   font-size: 1.1rem;
@@ -125,16 +125,16 @@
 }
 
 .login-button:hover {
-  background-color: #1aa079; /* Verde más oscuro en hover */
-  border-color: #1aa079;
+  background-color: #fa4d4d ;/* Verde más oscuro en hover */
+  border-color: #fa4d4d;
   transform: translateY(-2px); /* Pequeño efecto de elevación */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* En LoginPage.css */
 .login-card .login-form-section .login-button { /* Más específico */
-    background-color: #20c997 !important; /* Usar !important si es necesario como último recurso */
-    border-color: #20c997 !important;
+    background-color: #fa4d4d !important; /* Usar !important si es necesario como último recurso */
+    border-color: #fa4d4d!important;
     color: #ffffff !important;
     padding: 0.75rem 1.5rem !important;
     font-size: 1.1rem !important;
@@ -144,15 +144,15 @@
 }
 
 .login-card .login-form-section .login-button:hover {
-    background-color: #1aa079 !important; 
-    border-color: #1aa079 !important;
+    background-color: #fa4d4d !important; 
+    border-color: #fa4d4d !important;
     transform: translateY(-2px) !important; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Sección de bienvenida (derecha) */
 .login-welcome-section {
-  background-color: #00ffb3; /* Verde vibrante para el fondo */
+  background-color: #f9a3a3; /* Verde vibrante para el fondo */
   color: #ffffff;
   position: relative;
   overflow: hidden; /* Para que el círculo no se salga */
@@ -168,7 +168,7 @@
   left: 50%;
   width: 150%; /* Tamaño del círculo (más grande que el contenedor) */
   height: 150%;
-  background-color: #43caa2; /* Un verde ligeramente más oscuro para el círculo, puedes ajustarlo */
+  background-color: #fa4d4d; /* Un verde ligeramente más oscuro para el círculo, puedes ajustarlo */
   border-radius: 50%; /* Hacerlo un círculo */
   transform: translate(-50%, -50%) scale(0.6); /* Centrar y escalar */
 }

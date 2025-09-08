@@ -1,126 +1,46 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import './Navbar.css';
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FaHeartbeat } from "react-icons/fa"; // 👈 icono
 
-function Navbar() {
-  const { isAuth, user, signout } = useAuth();
-  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const dropdownRef = useRef(null);
-
-  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
-  const toggleDropdown = () => setIsDropdownOpen(prev => !prev);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  const handleSignOut = () => {
-    signout();
-    setIsDropdownOpen(false);
-  };
-
-  // Cambia el color de fondo del navbar al hacer scroll
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-  const handleScroll = () => {
-    setScrolled(window.scrollY > true); // cambia a true si se desplazó más de 50px
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-
+function CustomNavbar() {
   return (
-    <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? 'navbar-scrolled' : 'navbar-transparent'} navbar-dark`}>
-      <div className="container">
-        <Link className="navbar-brand d-flex align-items-center ps-0" to="/"> 
-          <img src="/escudo.png" alt="Escudo Universidad" className="navbar-logo me-2" />
-          <span className="navbar-title fs-6">Plataforma de Evaluación Socio-Clínica</span>
-        </Link>
+    <Navbar bg="danger" expand="lg" variant="dark" className="shadow-sm fixed-top">
+      <Container>
+        {/* Marca con icono */}
+        <Navbar.Brand as={Link} to="/" className="fw-bold text-white d-flex align-items-center">
+          <FaHeartbeat className="me-2 brand-icon" /> {/* 👈 icono */}
+          VitalNurse
+        </Navbar.Brand>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded={!isNavCollapsed ? true : false}
-          aria-label="Toggle navigation"
-          onClick={handleNavCollapse}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div
-          className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`}
-          id="navbarNav"
-        >
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item" >
-              <Link className="nav-link" to="/about" onClick={handleNavCollapse}>
-                Sobre nosotros
-              </Link>
-            </li>
-
-            {!isAuth ? (
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login" onClick={handleNavCollapse}>
-                    Iniciar sesión
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/register" onClick={handleNavCollapse}>
-                    Registrarme 
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <li className="nav-item dropdown" ref={dropdownRef}>
-                <button
-                  className="nav-link dropdown-toggle"
-                  onClick={toggleDropdown}
-                  aria-expanded={isDropdownOpen ? true : false}
-                >
-                  {user?.name || 'Usuario'}
-                </button>
-                <ul
-                  className={`dropdown-menu dropdown-menu-end ${isDropdownOpen ? 'show' : ''}`}
-                >
-                  <li>
-                    <Link className="dropdown-item" to="/profile" onClick={() => { setIsDropdownOpen(false); handleNavCollapse(); }}>
-                      Perfil
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <button className="dropdown-item" onClick={handleSignOut}>
-                      Cerrar sesión
-                    </button>
-                  </li>
-                </ul>
-              </li>
-            )}
-          </ul>
-        </div>
-      </div>
-    </nav>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="ms-auto align-items-lg-center">
+            <Nav.Link href="#home" className="nav-link-custom">Inicio</Nav.Link>
+            <Nav.Link href="#about" className="nav-link-custom">Quiénes somos</Nav.Link>
+            <Nav.Link href="#contact" className="nav-link-custom">Contacto</Nav.Link>
+          </Nav>
+          <div className="d-flex ms-lg-4 mt-3 mt-lg-0">
+            <Button
+              as={Link}
+              to="/register"
+              variant="outline-light"
+              className="me-2 fw-semibold px-4"
+            >
+              Registrarse
+            </Button>
+            <Button
+              as={Link}
+              to="/login"
+              variant="light"
+              className="fw-semibold px-4 text-danger"
+            >
+              Iniciar sesión
+            </Button>
+          </div>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default CustomNavbar;
