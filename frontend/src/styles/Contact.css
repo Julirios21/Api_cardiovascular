@@ -1,0 +1,22 @@
+.contact-section h2 {
+  font-size: 1.8rem;
+}
+
+.contact-section .card {
+  border-radius: 10px;
+}
+
+.contact-section .form-control {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.contact-section button {
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+}
+body {
+  padding-top: 50px; /* altura del navbar */
+}
+

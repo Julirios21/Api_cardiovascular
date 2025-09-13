@@ -15,7 +15,7 @@ function AboutUs() {
               de datos clínicos básicos y el desarrollo de tamizajes que faciliten una evaluación temprana 
               del estado de salud de la población.
             </p>
-            <Button variant="danger" to="/about" as={Link}>Conoce más</Button>
+            <Button variant="danger" href="https://www.unilibre.edu.co/pereira/">Conoce más</Button>
           </Col>
           <Col md={6}>
             <img

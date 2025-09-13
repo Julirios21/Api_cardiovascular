@@ -15,9 +15,9 @@ function CustomNavbar() {
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto align-items-lg-center">
-            <Nav.Link href="#home" className="nav-link-custom">Inicio</Nav.Link>
-            <Nav.Link href="#about" className="nav-link-custom">Quiénes somos</Nav.Link>
-            <Nav.Link href="#contact" className="nav-link-custom">Contacto</Nav.Link>
+            <Nav.Link href="/" className="nav-link-custom">Inicio</Nav.Link>
+            <Nav.Link href="/about" className="nav-link-custom">Quiénes somos</Nav.Link>
+            <Nav.Link href="/contact" className="nav-link-custom">Contacto</Nav.Link>
           </Nav>
           <div className="d-flex ms-lg-4 mt-3 mt-lg-0">
             <Button

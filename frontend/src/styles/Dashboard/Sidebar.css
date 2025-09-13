@@ -1,0 +1,25 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background: #dc3545; /* rojo Bootstrap */
+  padding-top: 1rem;
+}
+
+.sidebar h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.sidebar .nav-link {
+  margin: 0.3rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

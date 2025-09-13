@@ -1,0 +1,20 @@
+.login-page {
+  min-height: 100vh;
+  background-color: #f8f9fa; /* gris claro */
+}
+
+.login-card {
+  border-radius: 1rem;
+}
+
+.login-card h2 {
+  font-size: 1.8rem;
+}
+
+.login-card a {
+  text-decoration: none;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}

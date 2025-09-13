@@ -1,102 +1,86 @@
-// frontend/src/pages/LoginPage.jsx
-import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import "../styles/LoginPage.css"; // Importa el CSS
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import "../styles/LoginPage.css";
 
-function LoginPage() {
-  const { signin, isAuth, errors } = useAuth();
-  const navigate = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [cedula, setCedula] = useState(""); 
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const result = await signin({ email, cedula }); 
-    console.log("Resultado del login:", result);
-  };
-
-  useEffect(() => {
-    if (isAuth) navigate("/profile");
-  }, [isAuth]);
-
+function TestPage() {
   return (
-    <div className="container-fluid login-container d-flex justify-content-center align-items-center">
-      <div className="row login-card d-flex flex-lg-row flex-column">
-        {/* Sección izquierda: formulario */}
-        <div className="col-lg-6 login-form-section d-flex flex-column justify-content-center align-items-center"> 
-          {/* Contenedor interno para el contenido real del formulario y mantener el ancho limitado */}
-          <div style={{ maxWidth: '400px', width: '100%' }}> 
-            <h2 className="login-title mb-2 text-center">Iniciar Sesión</h2> 
-            <p className="login-subtitle mb-4 text-center">Accede con tu correo institucional y cédula.</p> 
+    <div className="testpage-container">
+      <Container fluid>
+        <Row className="vh-100">
+          {/* Columna izquierda: imagen como background */}
+          <Col
+            md={6}
+            className="d-none d-md-flex align-items-center justify-content-center left-col"
+          >
+            {/* No necesitas <img>, el fondo se maneja en CSS */}
+          </Col>
 
-            {errors?.map((err, i) => (
-              <div key={i} className="alert alert-danger py-1">{err}</div>
-            ))}
+          {/* Columna derecha: formulario */}
+          <Col
+            md={6}
+            className="d-flex align-items-center justify-content-center right-col"
+          >
+            <div className="login-card shadow-sm p-4 rounded w-75">
+              <h2 className="text-center fw-bold mb-2 text-danger">VitalNurse</h2>
+              <h4 className="text-center mb-3">Bienvenido de nuevo</h4>
+              <p className="text-center text-muted mb-4">
+                Ingrese sus credenciales para acceder a su cuenta
+              </p>
 
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label className="form-label">Correo</label>
-                <div className="input-group">
-                  <span className="input-group-text">
-                    <i className="bi bi-envelope"></i>
-                  </span>
-                  <input
-                    type="email"
-                    className="form-control"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="ejemplo@correo.com"
-                    required
+              <Form>
+                <Form.Group controlId="username" className="mb-3">
+                  <Form.Label>Nombre de usuario</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Ingrese su nombre de usuario"
                   />
-                </div>
-              </div>
+                </Form.Group>
 
-              <div className="mb-4">
-                <label className="form-label">Cédula</label> 
-                <div className="input-group">
-                  <span className="input-group-text">
-                    <i className="bi bi-person-badge"></i> 
-                  </span>
-                  <input
-                    type="text" 
-                    className="form-control"
-                    value={cedula} 
-                    onChange={(e) => setCedula(e.target.value)} 
-                    placeholder="123456789" 
-                    required
+                <Form.Group controlId="password" className="mb-3">
+                  <Form.Label>Contraseña</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Ingrese su contraseña"
                   />
+                </Form.Group>
+
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <Form.Check type="checkbox" label="Recordarme" />
+                  <a href="#" className="forgot-link">
+                    ¿Olvidó su contraseña?
+                  </a>
                 </div>
+
+                <Button variant="danger" type="submit" className="w-100 mb-3">
+                  Iniciar sesión
+                </Button>
+              </Form>
+
+              {/* Línea divisoria */}
+              <div className="divider">
+                <span>o continúe con</span>
               </div>
 
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <Link to="/forgot-password" className="forgot-password-link">
-                  ¿Olvidaste tu contraseña?
-                </Link>
+              {/* Botones sociales */}
+              <div className="d-flex justify-content-center gap-3 mt-3">
+                <Button variant="outline-secondary" className="w-50">
+                  Google
+                </Button>
+                <Button variant="outline-secondary" className="w-50">
+                  Microsoft
+                </Button>
               </div>
 
-              {/* Botón de Iniciar Sesión */}
-              <button type="submit" className="btn login-button w-100">
-                INICIAR SESIÓN
-              </button>
-            </form>
-          </div>
-        </div>
-
-        {/* Sección derecha: bienvenida */}
-        <div className="col-lg-6 login-welcome-section d-flex flex-column justify-content-center align-items-center text-center p-4">
-          <div className="welcome-content">
-            <h2 className="welcome-title">¡Bienvenido!</h2>
-            <p className="welcome-text">
-              Esta plataforma permite registrar información socio-clínica para apoyar procesos de evaluación, docencia e investigación.
-            </p>
-            <Link to="/register" className="register-button">Registrarse</Link>
-          </div>
-        </div>
-      </div>
+              {/* Footer */}
+              <div className="login-footer text-center mt-4">
+                <a href="#">Términos y condiciones</a> |{" "}
+                <a href="#">Política de privacidad</a> | <a href="#">Ayuda</a>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
 
-export default LoginPage;
+export default TestPage;
