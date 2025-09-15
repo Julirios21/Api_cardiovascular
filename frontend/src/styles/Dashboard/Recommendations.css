@@ -1,19 +1,20 @@
 :root {
   --shadow: 0 2px 6px rgba(2, 6, 23, 0.06);
+  --muted: #6b7280;
 }
 
-.alerts-card {
+.recommend-card {
   border: none;
   border-radius: 12px;
   box-shadow: var(--shadow);
 }
 
-.alerts-card .card-title {
+.recommend-card .card-title {
   font-size: 1rem;
   font-weight: 600;
 }
 
-.alerts-list .list-group-item {
+.recommend-list .list-group-item {
   font-size: 0.9rem;
   padding: 0.6rem 0.75rem;
   border: none;

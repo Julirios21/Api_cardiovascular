@@ -1,14 +1,73 @@
-.topbar {
-  margin-left: 220px; /* ancho del sidebar */
-  height: 60px;
-  background: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+:root {
+  --brand: #0b2545; /* azul oscuro */
+  --accent: #0ea5a4; /* verde/teal */
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --shadow: 0 2px 6px rgba(2, 6, 23, 0.06);
 }
 
-.topbar input {
-  border-radius: 20px;
+.topbar {
+  background: var(--bg);
+  border-bottom: 1px solid #e6eef6;
+  box-shadow: var(--shadow);
   padding: 0.5rem 1rem;
+  z-index: 30;
+}
+
+/* Logo / marca */
+.topbar .brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--brand);
+}
+
+/* Grupo de búsqueda */
+.topbar .search-group {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.topbar .search-group .form-control {
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid #dbeaf5;
+  padding-left: 0.8rem;
+}
+
+.topbar .search-group .search-btn {
+  height: 38px;
+  border-radius: 8px;
+}
+
+/* Acciones usuario */
+.topbar .user-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar .user-actions .btn-new {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.topbar .user-actions .btn-new:hover {
+  background-color: #0c8a8a;
+}
+
+.topbar .user-actions .user-info .name {
+  font-weight: 600;
+}
+
+.topbar .user-actions .user-info .role {
+  font-size: 0.8rem;
+  color: var(--muted);
 }

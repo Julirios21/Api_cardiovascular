@@ -1,25 +1,55 @@
+:root {
+  --sidebar-bg: #0b2545;   /* azul oscuro como en PDF */
+  --sidebar-text: #ffffff;
+  --sidebar-hover: #0ea5a4; /* verde acento */
+}
+
 .sidebar {
-  position: fixed;
+  width: 240px;
+  min-width: 240px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  position: sticky;
   top: 0;
-  left: 0;
-  height: 100vh;
-  width: 220px;
-  background: #dc3545; /* rojo Bootstrap */
-  padding-top: 1rem;
 }
 
-.sidebar h4 {
-  font-size: 1.3rem;
+/* Encabezado */
+.sidebar-header {
   font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.sidebar .nav-link {
+/* Links */
+.sidebar .sidebar-menu .sidebar-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
   margin: 0.3rem 0;
   padding: 0.6rem 1rem;
   border-radius: 8px;
-  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.sidebar .nav-link:hover {
-  background: rgba(255, 255, 255, 0.2);
+.sidebar .sidebar-menu .sidebar-link:hover,
+.sidebar .sidebar-menu .sidebar-link.active {
+  background-color: var(--sidebar-hover);
+  color: var(--sidebar-text);
+}
+
+.sidebar .sidebar-menu .sidebar-link.active {
+  background-color: var(--sidebar-hover);
+  color: var(--sidebar-text);
+}
+
+/* Pie de página */
+.sidebar-footer {
+  margin-top: auto; /* Empuja el footer al final */
+  padding-top: 1rem;
 }

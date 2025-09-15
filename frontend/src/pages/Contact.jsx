@@ -32,14 +32,16 @@ function Contact() {
               </p>
             </div>
 
-            {/* Alerta de éxito (arriba como antes) */}
-            {showAlert && (
-              <Alert variant="success" className="mb-3">
-                ✅ ¡Su consulta fue enviada exitosamente! Redirigiendo al inicio...
-              </Alert>
-            )}
-
             <Card className="shadow-sm border-0 p-4">
+              {/* Alerta de éxito dentro de la Card */}
+              {showAlert && (
+                <Alert variant="success" className="mb-3 text-center fw-semibold">
+                  ✅ ¡Su consulta fue enviada exitosamente!
+                  <br />
+                  Redirigiendo al inicio...
+                </Alert>
+              )}
+
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="name" className="mb-3">
                   <Form.Label>Nombre completo</Form.Label>

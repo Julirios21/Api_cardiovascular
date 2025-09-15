@@ -1,10 +1,10 @@
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar as Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaHeartbeat } from "react-icons/fa"; // 👈 icono
 
 function CustomNavbar() {
   return (
-    <Navbar bg="danger" expand="lg" variant="dark" className="shadow-sm fixed-top">
+    <Navbar bg="danger" expand="lg" variant="dark" className="shadow-sm">
       <Container>
         {/* Marca con icono */}
         <Navbar.Brand as={Link} to="/" className="fw-bold text-white d-flex align-items-center">
