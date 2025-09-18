@@ -11,10 +11,10 @@ function CallToAction() {
               Agenda una consulta con nuestros especialistas y da el primer paso hacia una mejor salud cardiovascular.
             </p>
             <div>
-              <Button variant="light" className="me-2">
+              <Button variant="light" className="me-2" href="/contact">
                 Agendar cita
               </Button>
-              <Button variant="outline-light" className="me-2">
+              <Button variant="outline-light" className="me-2" href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
                 Contactar por WhatsApp
               </Button>
             </div>

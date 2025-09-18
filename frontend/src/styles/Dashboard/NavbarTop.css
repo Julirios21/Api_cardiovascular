@@ -1,0 +1,39 @@
+.cc-navbar-top {
+  height: 64px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.cc-logo {
+  width: 40px;
+  height: 40px;
+  background-color: #dc3545; /* rojo Bootstrap */
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.cc-search {
+  max-width: 500px;
+  flex-grow: 1;
+}
+
+.cc-search-wrapper {
+  position: relative;
+}
+
+.cc-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.cc-search input {
+  padding-left: 36px;
+  border-radius: 12px;
+}
+.cc-navbar-top img {
+  object-fit: cover;
+}

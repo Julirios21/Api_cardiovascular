@@ -1,91 +1,25 @@
 import React from "react";
-import { Card, Table, Badge } from "react-bootstrap";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Card, Table, Button } from "react-bootstrap";
+import { FaDownload } from "react-icons/fa";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-const historial = [
-  { fecha: "14/04/2023", sistolica: 138, diastolica: 88, fc: 76, estado: "Elevado" },
-  { fecha: "28/04/2023", sistolica: 140, diastolica: 92, fc: 80, estado: "Alta" },
-  { fecha: "12/05/2023", sistolica: 142, diastolica: 90, fc: 78, estado: "Elevado" },
+const DATA = [
+  { fecha: "12/05/2023", sist: 135, diast: 85, fc: 78, estado: "Elevado" },
+  { fecha: "28/04/2023", sist: 140, diast: 90, fc: 82, estado: "Alto" },
+  { fecha: "14/04/2023", sist: 138, diast: 88, fc: 76, estado: "Elevado" },
 ];
 
-const data = {
-  labels: historial.map((h) => h.fecha),
-  datasets: [
-    {
-      label: "Sistólica (mmHg)",
-      data: historial.map((h) => h.sistolica),
-      borderColor: "rgb(220, 53, 69)",
-      backgroundColor: "rgba(220, 53, 69, 0.3)",
-      tension: 0.3,
-    },
-    {
-      label: "Diastólica (mmHg)",
-      data: historial.map((h) => h.diastolica),
-      borderColor: "rgb(255, 193, 7)",
-      backgroundColor: "rgba(255, 193, 7, 0.3)",
-      tension: 0.3,
-    },
-    {
-      label: "Frecuencia Cardíaca (lpm)",
-      data: historial.map((h) => h.fc),
-      borderColor: "rgb(25, 135, 84)",
-      backgroundColor: "rgba(25, 135, 84, 0.3)",
-      tension: 0.3,
-    },
-  ],
-};
-
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Evolución de registros",
-    },
-  },
-};
-
-const Historial = () => {
+export default function Historial() {
   return (
     <Card className="h-100">
-      <Card.Header>
-        Historial de registros
-        <span className="float-end text-danger" style={{ cursor: "pointer" }}>
-          Exportar datos
-        </span>
+      <Card.Header className="d-flex justify-content-between align-items-center">
+        <span className="fw-semibold">Historial de registros</span>
+        <Button size="sm" variant="outline-secondary" className="d-flex align-items-center gap-1">
+          <FaDownload className="me-1" /> Exportar datos
+        </Button>
       </Card.Header>
-      <Card.Body>
-        {/* Gráfico */}
-        <div className="mb-3">
-          <Line data={data} options={options} />
-        </div>
-
-        {/* Tabla */}
-        <Table hover responsive className="mb-0">
-          <thead>
+      <Card.Body className="p-0">
+        <Table responsive size="sm" hover className="mb-0 align-middle">
+          <thead className="table-light">
             <tr>
               <th>Fecha</th>
               <th>Sistólica</th>
@@ -95,18 +29,14 @@ const Historial = () => {
             </tr>
           </thead>
           <tbody>
-            {historial.map((h, index) => (
-              <tr key={index}>
-                <td>{h.fecha}</td>
-                <td>{h.sistolica}</td>
-                <td>{h.diastolica}</td>
-                <td>{h.fc}</td>
+            {DATA.map((r, i) => (
+              <tr key={i}>
+                <td>{r.fecha}</td>
+                <td>{r.sist}</td>
+                <td>{r.diast}</td>
+                <td>{r.fc}</td>
                 <td>
-                  <Badge
-                    bg={h.estado === "Alta" ? "danger" : "warning"}
-                  >
-                    {h.estado}
-                  </Badge>
+                  <span className="badge bg-warning text-dark">{r.estado}</span>
                 </td>
               </tr>
             ))}
@@ -115,6 +45,4 @@ const Historial = () => {
       </Card.Body>
     </Card>
   );
-};
-
-export default Historial;
+}

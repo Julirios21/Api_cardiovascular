@@ -21,6 +21,7 @@ const DashboardAdmin = () => {
         <NavbarTop onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
         <Container fluid className="flex-grow-1 py-4">
           <MainCards />
+          <br />
           <RegistrosTabla />
           <Row className="mt-3">
             <Col lg={6} className="mb-3">

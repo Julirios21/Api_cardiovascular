@@ -1,22 +1,34 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { FaEdit } from "react-icons/fa";
 
-const Recomendaciones = () => {
+export default function Recomendaciones() {
   return (
-    <Card>
-      <Card.Header>Recomendaciones</Card.Header>
-      <Card.Body>
-        <ul>
-          <li>🏃 Ejercicio cardiovascular: 30 minutos de caminata diaria</li>
-          <li>🥗 Dieta baja en sodio: Reducir consumo de sal</li>
-          <li>💧 Hidratación: Beber al menos 8 vasos de agua al día</li>
-        </ul>
-        <Button size="sm" variant="outline-danger">
-          Editar
+    <Card className="h-100">
+      <Card.Header className="d-flex justify-content-between align-items-center">
+        <span className="fw-semibold">Recomendaciones</span>
+        <Button size="sm" variant="outline-secondary">
+          <FaEdit className="me-1" /> Editar
         </Button>
+      </Card.Header>
+      <Card.Body>
+        <ul className="mb-3">
+          <li className="mb-2">
+            <strong>Ejercicio cardiovascular:</strong> 30 minutos de caminata diaria para mejorar la salud cardíaca.
+          </li>
+          <li className="mb-2">
+            <strong>Dieta baja en sodio:</strong> Reducir el consumo de sal para controlar la presión arterial.
+          </li>
+        </ul>
+
+        <div className="bg-light p-3 rounded">
+          <p className="mb-1 fw-semibold">Dr. Miguel Sánchez</p>
+          <p className="mb-0 text-muted small">
+            Esp. en Arritmias, 20 años exp.{" "}
+            <button className="btn btn-link btn-sm p-0 align-baseline">Detalles</button>
+          </p>
+        </div>
       </Card.Body>
     </Card>
   );
-};
-
-export default Recomendaciones;
+}

@@ -1,55 +1,81 @@
-:root {
-  --sidebar-bg: #0b2545;   /* azul oscuro como en PDF */
-  --sidebar-text: #ffffff;
-  --sidebar-hover: #0ea5a4; /* verde acento */
-}
-
-.sidebar {
-  width: 240px;
-  min-width: 240px;
-  background-color: var(--sidebar-bg);
-  color: var(--sidebar-text);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
+/* Contenedor del sidebar (desktop) */
+.cc-sidebar {
+  width: 260px;
+  background-color: #fff;
+  border-right: 1px solid #e9ecef;
   position: sticky;
   top: 0;
+  min-height: 100vh;
+  padding: 16px 12px;
 }
 
-/* Encabezado */
-.sidebar-header {
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  text-align: center;
+/* Título de sección */
+.cc-sidebar-section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #6c757d;
+  margin: 4px 8px 10px;
+  font-weight: 600;
 }
 
-/* Links */
-.sidebar .sidebar-menu .sidebar-link {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.95rem;
-  margin: 0.3rem 0;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
+/* Lista y enlaces */
+.cc-sidebar-nav ul {
+  display: grid;
+  gap: 6px;
+}
+
+.cc-sidebar-link {
   display: flex;
   align-items: center;
-  transition: background 0.2s ease, color 0.2s ease;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #495057;
+  transition: background-color .15s ease, color .15s ease, box-shadow .15s ease;
 }
 
-.sidebar .sidebar-menu .sidebar-link:hover,
-.sidebar .sidebar-menu .sidebar-link.active {
-  background-color: var(--sidebar-hover);
-  color: var(--sidebar-text);
+.cc-sidebar-link:hover {
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
-.sidebar .sidebar-menu .sidebar-link.active {
-  background-color: var(--sidebar-hover);
-  color: var(--sidebar-text);
+.cc-sidebar-link.active {
+  background-color: #212529;   /* similar a “Inicio” activo del PDF */
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 
-/* Pie de página */
-.sidebar-footer {
-  margin-top: auto; /* Empuja el footer al final */
-  padding-top: 1rem;
+/* Ícono */
+.cc-sidebar-link .icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: #f1f3f5;
+  color: #dc3545; /* rojo Bootstrap */
+  font-size: 0.95rem;
 }
+
+.cc-sidebar-link.active .icon {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+/* Etiqueta */
+.cc-sidebar-link .label {
+  line-height: 1;
+}
+
+/* Ajustes del Offcanvas (mobile) para mantener estética) */
+.cc-offcanvas .offcanvas-body {
+  padding: 8px 12px 16px;
+}
+
+.cc-offcanvas .cc-sidebar-link {
+  border-radius: 12px;
+}
+.cc-offcanvas .offcanvas-body { padding: 8px 12px 16px; }

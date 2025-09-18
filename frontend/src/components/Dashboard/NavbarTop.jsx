@@ -1,45 +1,57 @@
 import React from "react";
-import { Navbar, Button, Form, InputGroup } from "react-bootstrap";
-import { Search, PlusCircle, Menu } from "lucide-react";
+import { Navbar, Container, Form, Button } from "react-bootstrap";
+import { FaSearch, FaHeart } from "react-icons/fa";
+import "../../styles/Dashboard/NavbarTop.css";
 
-const NavbarTop = ({ onToggleSidebar }) => {
+export default function NavbarTop({ onToggleSidebar }) {
   return (
-    <Navbar bg="white" className="px-4 border-bottom w-100" expand="lg">
-      {/* Botón hamburguesa solo en pantallas pequeñas */}
-      <Button
-        variant="outline-secondary"
-        className="me-3 d-lg-none"
-        onClick={onToggleSidebar}
-      >
-        <Menu size={18} />
-      </Button>
-
-      {/* Buscador */}
-      <InputGroup style={{ maxWidth: "350px" }}>
-        <InputGroup.Text>
-          <Search size={16} />
-        </InputGroup.Text>
-        <Form.Control
-          type="text"
-          placeholder="Buscar pacientes, registros o síntomas..."
-        />
-      </InputGroup>
-
-      {/* Botón + usuario */}
-      <div className="ms-auto d-flex align-items-center">
-        <Button variant="danger" className="me-3 d-flex align-items-center">
-          <PlusCircle size={16} className="me-1" />
-          Nuevo registro
+    <Navbar bg="white" expand="lg" className="cc-navbar-top shadow-sm">
+      <Container fluid className="d-flex align-items-center justify-content-between">
+        <Button
+          variant="outline-secondary"
+          className="me-2"
+          onClick={onToggleSidebar}
+          aria-label="Abrir menú">
+          <span className="navbar-toggler-icon" />
         </Button>
-        <img
-          src="https://via.placeholder.com/40"
-          alt="Doctor"
-          className="rounded-circle border"
-        />
-        <span className="ms-2 fw-bold">Dra. Elena Martínez</span>
-      </div>
+        
+        {/* Marca: ícono + nombre */}
+        <div className="d-flex align-items-center gap-2">
+          <FaHeart className="text-danger fs-4" />
+          <div className="fw-bold text-danger">CardioControl</div>
+        </div>
+
+        {/* Buscador */}
+        <Form className="cc-search mx-4 flex-grow-1">
+          <div className="cc-search-wrapper">
+            <FaSearch className="cc-search-icon" />
+            <Form.Control
+              type="search"
+              placeholder="Buscar pacientes, registros o síntomas..."
+            />
+          </div>
+        </Form>
+
+        {/* Botón + Perfil */}
+        <div className="d-flex align-items-center gap-3">
+          <Button variant="danger" className="px-3">
+            Nuevo registro
+          </Button>
+          <div className="d-flex align-items-center gap-2">
+            <img
+              src="https://i.pravatar.cc/120?img=12"
+              alt="Avatar"
+              className="rounded-circle"
+              width={36}
+              height={36}
+            />
+            <div className="d-flex flex-column">
+              <span className="fw-semibold small">Dr. Miguel Sánchez</span>
+              <small className="text-muted">Cerrar sesión</small>
+            </div>
+          </div>
+        </div>
+      </Container>
     </Navbar>
   );
-};
-
-export default NavbarTop;
+}

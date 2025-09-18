@@ -57,17 +57,7 @@ function TestPage() {
 
               {/* Línea divisoria */}
               <div className="divider">
-                <span>o continúe con</span>
-              </div>
-
-              {/* Botones sociales */}
-              <div className="d-flex justify-content-center gap-3 mt-3">
-                <Button variant="outline-secondary" className="w-50">
-                  Google
-                </Button>
-                <Button variant="outline-secondary" className="w-50">
-                  Microsoft
-                </Button>
+                <span></span>
               </div>
 
               {/* Footer */}
