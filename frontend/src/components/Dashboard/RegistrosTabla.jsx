@@ -3,7 +3,7 @@ import { Card, Form, Button, Table, Pagination, Row, Col } from "react-bootstrap
 import { FaDownload, FaFilter } from "react-icons/fa";
 
 const MOCK_DATA = [
-  { fecha: "15/05/2023", tipo: "Presión Arterial", valor: "135/85 mmHg", estandar: "120/80 mmHg", estado: "Elevada", notas: "Medición después de ejercicio" },
+  { fecha: "15/05/2023", tipo: "Presión Arterial", valor: "135/85 mmHg", estandar: "120/80 mmHg", paciente: "Juan", estado: "Elevada", notas: "Medición después de ejercicio" },
   { fecha: "02/05/2023", tipo: "Colesterol Total", valor: "195 mg/dL", estandar: "< 200 mg/dL", estado: "Normal", notas: "Análisis trimestral" },
   { fecha: "28/04/2023", tipo: "Frecuencia Cardíaca", valor: "78 lpm", estandar: "60-100 lpm", estado: "Normal", notas: "Medición en reposo" },
   { fecha: "15/04/2023", tipo: "Presión Arterial", valor: "142/88 mmHg", estandar: "120/80 mmHg", estado: "Alta", notas: "Después de reunión estresante" },
@@ -24,6 +24,7 @@ export default function RegistrosTabla() {
         r.tipo.toLowerCase().includes(term) ||
         r.valor.toLowerCase().includes(term) ||
         r.estado.toLowerCase().includes(term) ||
+        r.paciente.toLowerCase().includes(term) ||
         r.notas.toLowerCase().includes(term)
     );
   }, [q]);

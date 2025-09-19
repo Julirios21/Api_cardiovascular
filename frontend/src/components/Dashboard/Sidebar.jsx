@@ -6,7 +6,7 @@ import "../../styles/Dashboard/Sidebar.css";
 
 const LINKS = [
   { to: "/dashboard", label: "Inicio", icon: <FaHome /> },
-  { to: "/datos", label: "Datos", icon: <FaDatabase /> },
+  { to: "/data", label: "Datos", icon: <FaDatabase /> },
   { to: "/estadisticas", label: "Estadísticas", icon: <FaChartBar /> },
   { to: "/recomendaciones", label: "Recomendaciones", icon: <FaHeartbeat /> },
   { to: "/about", label: "Configuraciones", icon: <FaInfoCircle /> },

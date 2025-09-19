@@ -14,10 +14,11 @@ import ClinicalFormPage from "../pages/ClinicalFormPage";
 import PrivateRoute from "../components/PrivateRoute";
 import Contact from "../pages/Contact";
 import Dashboard from "../pages/DashboardAdmin";
+import Data from "../pages/Data";
 
 function LayoutWrapper() {
   const location = useLocation();
-  const hideNavbarRoutes = ["/login","/test", "/register", "/profile", "/dashboard"];
+  const hideNavbarRoutes = ["/login","/test", "/register", "/profile", "/dashboard", "/data"];
   const hideNavbar = hideNavbarRoutes.includes(location.pathname);
 
   return (
@@ -32,6 +33,7 @@ function LayoutWrapper() {
         <Route path="/clinica-form" element={<ClinicalFormPage />} /> 
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/data" element={<Data />} />
 
         <Route
           path="/tasks"

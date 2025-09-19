@@ -122,7 +122,7 @@ export default function MainCards() {
               <div className="mt-auto">
                 <Button
                   variant="outline-danger"
-                  className="w-100 py-2"
+                  className="w-25 p-50 py-2"
                   style={{ borderRadius: 12 }}
                 >
                   Ver

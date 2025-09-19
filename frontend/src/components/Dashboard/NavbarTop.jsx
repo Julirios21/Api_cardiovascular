@@ -5,8 +5,11 @@ import "../../styles/Dashboard/NavbarTop.css";
 
 export default function NavbarTop({ onToggleSidebar }) {
   return (
-    <Navbar bg="white" expand="lg" className="cc-navbar-top shadow-sm">
+    <Navbar bg="white" expand="lg-none" className="cc-navbar-top shadow-sm">
       <Container fluid className="d-flex align-items-center justify-content-between">
+        
+        {/* Marca: ícono + nombre */}
+        <div className="d-flex align-items-center gap-1">
         <Button
           variant="outline-secondary"
           className="me-2"
@@ -14,10 +17,7 @@ export default function NavbarTop({ onToggleSidebar }) {
           aria-label="Abrir menú">
           <span className="navbar-toggler-icon" />
         </Button>
-        
-        {/* Marca: ícono + nombre */}
-        <div className="d-flex align-items-center gap-2">
-          <FaHeart className="text-danger fs-4" />
+          <FaHeart className="text-danger fs-3" />
           <div className="fw-bold text-danger">CardioControl</div>
         </div>
 
@@ -34,9 +34,6 @@ export default function NavbarTop({ onToggleSidebar }) {
 
         {/* Botón + Perfil */}
         <div className="d-flex align-items-center gap-3">
-          <Button variant="danger" className="px-3">
-            Nuevo registro
-          </Button>
           <div className="d-flex align-items-center gap-2">
             <img
               src="https://i.pravatar.cc/120?img=12"
@@ -47,7 +44,7 @@ export default function NavbarTop({ onToggleSidebar }) {
             />
             <div className="d-flex flex-column">
               <span className="fw-semibold small">Dr. Miguel Sánchez</span>
-              <small className="text-muted">Cerrar sesión</small>
+              <small className="text-danger">Cerrar sesión</small>
             </div>
           </div>
         </div>
