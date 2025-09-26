@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  postgres:
+    build: .
+    container_name: postgres_compose
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: CardidbAdmin004
+      POSTGRES_DB: cardio
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./Api_cardiovascular
+    container_name: backend_compose
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://postgres:CardidbAdmin004@postgres:5432/cardio?sslmode=disable
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Api_cardiovascular:/app:Z
+
+volumes:
+  postgres_data:

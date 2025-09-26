@@ -4,10 +4,8 @@ require('dotenv').config({ path: './.env' });
 
 console.log("Conectando a la base de datos...");
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false, 
-  },
+  connectionString: process.env.DATABASE_URL, // <-- tu URL completa de conexión
+
 });
 
 // Agregar manejo de errores más detallado
@@ -20,7 +18,7 @@ pool.connect((err) => {
     console.error('Error al conectar a la base de datos:', err.message);
     console.error('Detalles del error:', err);
   } else {
-    console.log('Conectado a la base de datos PostgreSQL en Render');
+    console.log('Conectado a la base de datos PostgreSQL');
   }
 });
 

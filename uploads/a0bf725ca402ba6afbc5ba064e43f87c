@@ -1,3 +1,0 @@
-email,cedula,password,fecha_valoracion,nombre_completo,fecha_nacimiento,edad,genero,ocupacion,nivel_educativo,telefono,direccion,eps
-usuario1@ejemplo.com,1111111111,pass1,2024-07-16,Usuario Uno,1990-01-01,34,Masculino,Ingeniero,Universitario,3000000001,Calle 1,Salud Total
-usuario3@ejemplo.com,1029980139,pass2,2024-07-17,Usuario Dos,1985-05-05,,Femenino,Doctora,Maestría,3000000002,Calle 2,Sanitas
