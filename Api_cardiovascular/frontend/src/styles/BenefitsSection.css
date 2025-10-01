@@ -1,0 +1,15 @@
+.benefit-icon {
+  font-size: 3rem;
+  color: #dc3545; /* rojo Bootstrap */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.benefit-icon:hover {
+  transform: scale(1.2);
+  color: #b71c1c; /* rojo más oscuro */
+}
+body {
+  font: 1em sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}

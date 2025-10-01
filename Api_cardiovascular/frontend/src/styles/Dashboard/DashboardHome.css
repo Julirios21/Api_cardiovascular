@@ -1,0 +1,77 @@
+:root {
+  --accent: #0ea5a4;
+  --bg-card: #ffffff;
+  --shadow: 0 2px 6px rgba(2, 6, 23, 0.06);
+  --muted: #6b7280;
+  --users: #2563eb;       /* azul */
+  --alerts: #ef4444;      /* rojo */
+  --recommend: #f59e0b;   /* amarillo */
+}
+
+/* Bloque principal */
+.dashboard-home {
+  padding: 1rem 0;
+}
+
+/* Tarjetas de resumen */
+.summary-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+}
+
+.summary-card .card-body {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.summary-card h6 {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.summary-card h2 {
+  font-size: 1.6rem;
+  margin: 0.2rem 0 0;
+}
+
+/* Iconos dentro de tarjetas */
+.card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.card-icon i {
+  font-size: 1.2rem;
+}
+
+.bg-users {
+  background-color: var(--users);
+}
+.bg-alerts {
+  background-color: var(--alerts);
+}
+.bg-recommend {
+  background-color: var(--recommend);
+}
+
+/* Gráfica de actividad */
+.chart-placeholder {
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

@@ -1,0 +1,26 @@
+.mission-section img {
+  max-height: 350px;
+  object-fit: cover;
+}
+
+.history-section h4 {
+  font-size: 1.8rem;
+}
+
+.values-section .card {
+  transition: transform 0.3s ease;
+}
+
+.values-section .card:hover {
+  transform: translateY(-5px);
+}
+
+.cta-section button {
+  min-width: 180px;
+}
+.about-page {
+  padding-top: 60px; /* ajustar según la altura del Navbar */
+}
+.about-page .container {
+  max-width: 960px;
+}

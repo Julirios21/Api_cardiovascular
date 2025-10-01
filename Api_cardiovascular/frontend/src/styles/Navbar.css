@@ -1,0 +1,29 @@
+/* Quita subrayado y cambia color hover de los links */
+.nav-link-custom {
+  color: #fff !important;
+  margin-left: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #a19981 !important; /* Resalto cuando pasa el cursor*/
+}
+
+/* Botón Registrarse: borde blanco con hover */
+.btn-outline-light:hover {
+  background-color: #fff !important;
+  color: #dc3545 !important; /* rojo Bootstrap */
+}
+
+/* Botón Iniciar sesión: fondo blanco con hover rojo */
+.btn-light:hover {
+  background-color: #c2b9b9 !important; /* Resalto cuando pasa el cursor*/
+  color: #dc3545 !important; /* rojo Bootstrap */
+}
+
+/* Icono de la marca en la navbar */
+.brand-icon {
+  font-size: 1.5rem;
+  color: #fff; /* blanco para resaltar */
+}

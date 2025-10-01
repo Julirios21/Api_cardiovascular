@@ -1,0 +1,49 @@
+.testpage-container {
+  height: 100vh;
+}
+
+/* Columna izquierda: imagen ocupa todo */
+.left-col {
+  background: url("/slider.png") center center no-repeat;
+  background-size: cover;
+  min-height: 100%;
+}
+
+/* Columna derecha */
+.right-col {
+  /* background: linear-gradient(to left,#dc3545,#dc3545,#b35353, #f4eaea,#ffffff); */
+  padding: 2rem;
+  color: #fff;
+}
+
+/* Caja del login */
+.login-card {
+  background: #fff;
+  color: #333;
+}
+
+.login-card .forgot-link {
+  font-size: 0.9rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 0.75em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 0.75em;
+}

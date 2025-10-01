@@ -1,0 +1,54 @@
+:root {
+  --shadow: 0 2px 6px rgba(2, 6, 23, 0.06);
+  --muted: #6b7280;
+}
+
+/* Tarjeta que contiene la tabla */
+.records-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-top: 1rem;
+}
+
+/* Encabezado de la tarjeta */
+.records-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.records-header .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Tabla */
+.records-table thead {
+  background: #f1f5f9;
+}
+
+.records-table th {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: none;
+}
+
+.records-table td {
+  vertical-align: middle;
+  font-size: 0.9rem;
+}
+
+.records-table .badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 0.35em 0.65em;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
