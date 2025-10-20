@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: CardidbAdmin004
       POSTGRES_DB: cardio
     ports:
-      - "5432:5432"
+      - "${PORT_POSTGRES}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -20,10 +20,26 @@ services:
       - postgres
     environment:
       DATABASE_URL: postgres://postgres:CardidbAdmin004@postgres:5432/cardio?sslmode=disable
+      JWT_SECRET: CardiJWTAdmin004
     ports:
       - "3000:3000"
     volumes:
       - ./Api_cardiovascular:/app:Z
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_compose
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app:Z
+      - /app/node_modules
+    working_dir: /app
+    command: ["npm", "run", "dev", "--", "--host"]
+    environment:
+      - VITE_API_URL=http://localhost:3000
 
 volumes:
   postgres_data:

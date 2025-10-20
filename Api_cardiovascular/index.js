@@ -13,14 +13,14 @@ const usuarioRoutes = require('./routes/usuarioRoutes');
 const internoRoutes = require('./routes/internoRoutes');
 const externoRoutes = require('./routes/externoRoutes');
 const importarRoutes = require('./routes/importarCSV');
-const authRoutes = require('./routes/auth'); // Rutas de autenticación
+const authRoutes = require('./routes/auth'); 
 
 // Endpoints
 app.use('/usuarios', usuarioRoutes);
 app.use('/interno', internoRoutes);
 app.use('/externo', externoRoutes);
-app.use('/api', importarRoutes);
-app.use('/api', authRoutes);   // Rutas de autenticación
+app.use('/api/import', importarRoutes);
+app.use('/api/auth', authRoutes); 
 
 // Ruta raíz
 app.get('/', (req, res) => {

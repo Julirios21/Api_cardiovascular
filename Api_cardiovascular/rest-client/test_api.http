@@ -1,0 +1,40 @@
+### Crear un usuario
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "email": "juan@example.com",
+  "cedula": "123456789",
+  "password": "password123",
+  "tipo_usuario": "externo"
+}
+
+###
+
+# Crear un usuario 
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "email": "juan.perez@example.com",
+  "cedula": "123456789",
+  "password": "clave123",
+  "tipo_usuario": "externo"
+}
+
+### Importar CSV
+POST http://localhost:3000/api/import/importar-csv
+Content-Type: multipart/form-data
+
+file=@./usuarios.csv
+###
+
+# Obtener todos los usuarios
+GET http://localhost:3000/usuarios
+Accept: application/json
+
+###
+
+# Obtener todos los pacientes
+GET http://localhost:3000/pacientes
+Accept: application/json

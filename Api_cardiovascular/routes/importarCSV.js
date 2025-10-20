@@ -8,7 +8,7 @@ const router = express.Router();
 const upload = multer({ dest: 'uploads/' }); // Carpeta temporal
 
 // Ruta POST para importar CSV
-router.post('/importar-csv', upload.single('archivo'), (req, res) => {
+router.post('/importar-csv', upload.single('file'), (req, res) => {
   const resultados = [];
 
   fs.createReadStream(req.file.path)

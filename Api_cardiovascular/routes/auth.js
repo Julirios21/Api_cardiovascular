@@ -1,3 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const pool = require('../config/db');
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('../config/config');
+
+
+
 router.post('/signin', async (req, res) => {
   let { email, cedula } = req.body || {};
   // Normalización defensiva
@@ -22,10 +30,16 @@ router.post('/signin', async (req, res) => {
     if (!rows.length) return res.status(401).json({ message: 'Credenciales inválidas' });
 
     const user = rows[0];
-    const token = jwt.sign({ sub: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign(
+      { sub: user.id, email: user.email, tipo_usuario: user.tipo_usuario },
+      JWT_SECRET,
+      { expiresIn: '1d' }
+    );
     return res.json({ access_token: token, user });
   } catch (e) {
     console.error(e);
     return res.status(500).json({ message: 'Error de servidor' });
   }
 });
+
+module.exports = router;
